@@ -13,12 +13,13 @@ public class Client {
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		ClientFrame client = new ClientFrame();
+		int porta = 9080;
 		while(true)
 		{
 			System.out.println(client.getCheckIndirizzo()+" 1");
 			if(client.getCheckIndirizzo())
 			{
-				Socket clientSocket = new Socket(client.getIndirizzo(), 9080);
+				Socket clientSocket = new Socket(client.getIndirizzo(), porta);
 				OutputStreamWriter osw = new OutputStreamWriter(clientSocket.getOutputStream());
 				BufferedWriter bw = new BufferedWriter(osw);
 				PrintWriter out = new PrintWriter(bw, true);
